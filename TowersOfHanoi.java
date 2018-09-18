@@ -23,8 +23,7 @@ class TowersOfHanoi{
 	
 	@Override
 	public String toString(){
-		String outputString = ""; 
-		outputString = this.getTowers()[0].toString() + "; " + this.getTowers()[1].toString() + "; " + this.getTowers()[2].toString(); 
+		String outputString = "\n" + this.getTowers()[0].toString() + "; " + this.getTowers()[1].toString() + "; " + this.getTowers()[2].toString(); 
 		return outputString;
 	}
 		
