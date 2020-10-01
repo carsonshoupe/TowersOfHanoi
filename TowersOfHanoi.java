@@ -1,34 +1,26 @@
-class TowersOfHanoi{
-	//Instance Variables:
-	private Tower[] towers; 
-	private int numDisks; 
-	
-	//Constructors:
-	TowersOfHanoi(int numOfLevels){
-		this.numDisks = numOfLevels; 
-		towers = new Tower[3]; 
-		towers[0] = new Tower(numOfLevels, true); 
-		towers[1] = new Tower(numOfLevels); 
-		towers[2] = new Tower(numOfLevels); 
+import java.util.Scanner;
+
+public class runner {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		solution.towerOfHanoi(n, 'a', 'b', 'c');
 	}
-	
-	//Methods: 
-	public Tower[] getTowers(){return this.towers;}
-	public int getNumDisks(){return this.numDisks;}			
-	
-	public TowersOfHanoi solver(){
-		this.getTowers()[0].moveStack(this.getTowers()[2], this.getTowers()[1], numDisks);
-		return this;
-	}
-	
-	@Override
-	public String toString(){
-		String outputString = "\n" + this.getTowers()[0].toString() + "; " + this.getTowers()[1].toString() + "; " + this.getTowers()[2].toString(); 
-		return outputString;
-	}
-		
 }
 
+
+public class solution {
+
+	public static void towerOfHanoi(int disks, char a, char b, char c) {
+        if(disks>0){
+        //first a is source b is destination and c is auxiliary
+            towerOfHanoi(disks-1,a,c,b);
+            System.out.println(a+" "+c);
+            //b is source c is destination and a is auxiliary
+            towerOfHanoi(disks-1,b,a,c);
+        }
+	}
+}
 		
 		
 		
